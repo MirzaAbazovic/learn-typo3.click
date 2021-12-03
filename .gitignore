@@ -23,7 +23,6 @@ nbproject
 # Ignore common TYPO3 CMS files/directories
 /.env
 /Configuration
-
 /public/fileadmin
 /public/index.php
 /public/typo3
