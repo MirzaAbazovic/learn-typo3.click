@@ -15,11 +15,12 @@
 	},
 	"require": {
 		"helhum/dotenv-connector": "^3.0",
-		"helhum/typo3-console": "^6.7",
+		"helhum/typo3-console": "^6.6",
 		"typo3-console/composer-auto-commands": "^0.4",
 		"typo3/cms-belog": "*",
 		"typo3/cms-beuser": "*",
 		"typo3/cms-core": "^10.4",
+		"typo3/cms-felogin": "*",
 		"typo3/cms-filemetadata": "*",
 		"typo3/cms-fluid-styled-content": "*",
 		"typo3/cms-info": "*",
