@@ -1,0 +1,38 @@
+{
+	"name": "learn-typo3/learn-typo3.click",
+	"description": "learn-typo3.click website",
+	"authors": [
+		{
+			"name": "Sergio Catalá",
+			"email": "instruccionesaldorso@gmail.com"
+		}
+	],
+	"config": {
+		"sort-packages": true,
+		"platform": {
+			"php": "7.4.3"
+		}
+	},
+	"require": {
+		"helhum/dotenv-connector": "^3.0",
+		"helhum/typo3-console": "^6.7",
+		"typo3-console/composer-auto-commands": "^0.4",
+		"typo3/cms-belog": "*",
+		"typo3/cms-beuser": "*",
+		"typo3/cms-core": "^10.4",
+		"typo3/cms-filemetadata": "*",
+		"typo3/cms-fluid-styled-content": "*",
+		"typo3/cms-info": "*",
+		"typo3/cms-linkvalidator": "*",
+		"typo3/cms-lowlevel": "*",
+		"typo3/cms-redirects": "*",
+		"typo3/cms-reports": "*",
+		"typo3/cms-rte-ckeditor": "*",
+		"typo3/cms-scheduler": "*",
+		"typo3/cms-seo": "*",
+		"typo3/cms-setup": "*",
+		"typo3/cms-t3editor": "*",
+		"typo3/cms-tstemplate": "*",
+		"typo3/minimal": "*"
+	}
+}
