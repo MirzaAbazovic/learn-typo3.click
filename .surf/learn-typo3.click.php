@@ -66,9 +66,9 @@ $deployment
     ->onInitialize(
         function () use ($workflow, $application) {
             $workflow
-                ->beforeStage('transfer', WebOpcacheResetCreateScriptTask::class)
+                //->beforeStage('transfer', WebOpcacheResetCreateScriptTask::class)
                 ->afterStage('finalize', ['SetOwnershipAndPermissions'])
-                ->afterStage('switch', WebOpcacheResetExecuteTask::class)
+                //->afterStage('switch', WebOpcacheResetExecuteTask::class)
                 ->afterStage('switch', ['CopyPhpIniForOpcache'])
                 ->removeTask(CreatePackageStatesTask::class)
                 ->removeTask(CopyConfigurationTask::class);
