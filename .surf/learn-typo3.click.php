@@ -69,7 +69,7 @@ $deployment
                 //->beforeStage('transfer', WebOpcacheResetCreateScriptTask::class)
                 ->afterStage('finalize', ['SetOwnershipAndPermissions'])
                 //->afterStage('switch', WebOpcacheResetExecuteTask::class)
-                ->afterStage('switch', ['CopyPhpIniForOpcache'])
+                //->afterStage('switch', ['CopyPhpIniForOpcache'])
                 ->removeTask(CreatePackageStatesTask::class)
                 ->removeTask(CopyConfigurationTask::class);
         }
