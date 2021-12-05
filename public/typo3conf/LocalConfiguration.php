@@ -38,7 +38,7 @@ return [
             'backendLogo' => '',
             'loginBackgroundImage' => '',
             'loginFootnote' => '',
-            'loginHighlightColor' => '#ff0000',
+            'loginHighlightColor' => '#000000',
             'loginLogo' => '',
         ],
         'extensionmanager' => [
