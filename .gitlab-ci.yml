@@ -1,0 +1,26 @@
+stages:
+  - gitlab-org-docker
+
+variables:
+  COMPOSER_CACHE_DIR: "$CI_PROJECT_DIR/.caches/composer"
+
+image: t3easy/surf:2-php7.4-composer2-node14
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | base64 -d | ssh-add -
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+#
+# trigger the develop deployment after every commit to the develop-branch
+#
+develop-deployment:
+  tags:
+    - gitlab-org-docker
+  only:
+    - 'develop'
+  stage: 'gitlab-org-docker'
+  script:
+    - 'surf deploy learn-typo3.click -vvv'
