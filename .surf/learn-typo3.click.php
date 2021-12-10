@@ -22,7 +22,7 @@ $node
 $application = new CMS('current');
 $application
     ->setContext('Development/Develop')
-    ->setDeploymentPath('/home/sergio/htdocs')
+    ->setDeploymentPath('/var/html/learn-typo3.click')
     ->setOptions(array_merge($application->getOptions(), [
         'baseUrl' => 'https://learn-typo3.click/',
         'branch' => 'develop',
