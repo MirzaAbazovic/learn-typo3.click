@@ -31,14 +31,15 @@ $application
         'repositoryUrl' => 'git@gitlab.com:instruccionesaldorso/learn-typo3.click.git',
         'symlinkDataFolders' => [],
         'webDirectory' => 'public',
+        'rsyncExcludes' => array_merge($application->getOption('rsyncExcludes'), [
+            '/.surf',
+            '/.gitignore',
+            '/.gitlab-ci.yml',
+            '/composer.*',
+            '/public/fileadmin',
+        ]),
+        'symlinkDataFolders' => ['fileadmin'],
     ]))
-    ->setOption('rsyncExcludes', [
-        '/.ddev',
-        '/.surf',
-        '/.git*',
-        '/composer.*',
-        '/public/fileadmin'
-    ])
     ->setOption(FlushCachesTask::class . '[arguments]', [])
     ->addSymlinks([
         'Configuration' => '../../shared/Configuration/Configuration',
