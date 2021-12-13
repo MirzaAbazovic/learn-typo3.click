@@ -9,13 +9,12 @@ use TYPO3\Surf\Task\Php\WebOpcacheResetExecuteTask;
 use TYPO3\Surf\Task\TYPO3\CMS\CopyConfigurationTask;
 use TYPO3\Surf\Task\TYPO3\CMS\CreatePackageStatesTask;
 use TYPO3\Surf\Task\TYPO3\CMS\FlushCachesTask;
-use TYPO3\Surf\Task\TYPO3\CMS\RunCommandTask;
 
 $node = new Node('ec2-3-67-33-241.eu-central-1.compute.amazonaws.com');
 $node
     ->setHostname($node->getName())
     ->setOptions(array_merge($node->getOptions(), [
-        'username' => 'sergio',
+        'username' => 'gitlab',
         'phpBinaryPathAndFilename' => '/usr/bin/php'
     ]));
 
@@ -56,7 +55,7 @@ $workflow
     ->defineTask('SetOwnershipAndPermissions',
         ShellTask::class,
         [
-            'command' => 'chown www-data:www-data {releasePath} -R && cd {releasePath} && find . -type d -exec chmod 2775 {} + && find . -type f -exec chmod 0664 {} + && chmod 0774 vendor/helhum/typo3-console/typo3cms && chmod 0774 vendor/typo3/cms-cli/typo3'
+            'command' => 'chown gitlab:www-data {releasePath} -R && cd {releasePath} && find . -type d -exec chmod 2775 {} + && find . -type f -exec chmod 0664 {} + && chmod 0774 vendor/helhum/typo3-console/typo3cms && chmod 0774 vendor/typo3/cms-cli/typo3'
         ]
     );
 
