@@ -56,7 +56,7 @@ $workflow
     ->defineTask('SetOwnershipAndPermissions',
         ShellTask::class,
         [
-            'command' => 'chown www-data:www-data {releasePath} -R && cd {releasePath} && find . -type d -exec chmod 2775 {} + && find . -type f -exec chmod 0664 {} + && chmod 0770 vendor/helhum/typo3-console/typo3cms && chmod 0770 vendor/typo3/cms-cli/typo3'
+            'command' => 'chown www-data:www-data {releasePath} -R && cd {releasePath} && find . -type d -exec chmod 2775 {} + && find . -type f -exec chmod 0664 {} + && chmod 0774 vendor/helhum/typo3-console/typo3cms && chmod 0774 vendor/typo3/cms-cli/typo3'
         ]
     );
 
@@ -67,11 +67,10 @@ $deployment
     ->onInitialize(
         function () use ($workflow, $application) {
             $workflow
-                //->beforeStage('transfer', WebOpcacheResetCreateScriptTask::class)
-                ->afterStage('finalize', ['SetOwnershipAndPermissions'])
-                //->afterStage('switch', WebOpcacheResetExecuteTask::class)
-                //->afterStage('switch', ['CopyPhpIniForOpcache'])
-                ->removeTask(CreatePackageStatesTask::class)
-                ->removeTask(CopyConfigurationTask::class);
+                ->beforeStage('transfer', WebOpcacheResetCreateScriptTask::class, $application)
+                ->afterStage('finalize', 'SetOwnershipAndPermissions', $application)
+                ->afterStage('switch', WebOpcacheResetExecuteTask::class, $application)
+                ->removeTask(CreatePackageStatesTask::class, $application)
+                ->removeTask(CopyConfigurationTask::class, $application);
         }
     );
