@@ -1,4 +1,4 @@
-base: 'https://www.learn-typo3.click/'
+base: 'https://learn-typo3.click/'
 baseVariants:
   -
     base: 'https://learn-typo3.ddev.site'
