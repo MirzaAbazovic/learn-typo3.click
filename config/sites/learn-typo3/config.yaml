@@ -1,0 +1,26 @@
+base: 'https://www.learn-typo3.click/'
+baseVariants:
+  -
+    base: 'https://learn-typo3.ddev.site'
+    condition: 'applicationContext == "Development/Local"'
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=34'
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: English
+    hreflang: en-US
+    direction: ltr
+    flag: en-us-gb
+    websiteTitle: ''
+rootPageId: 1
+websiteTitle: 'Learn TYPO3'
